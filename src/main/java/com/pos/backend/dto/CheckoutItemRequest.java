@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class CheckoutItemRequest {
-    private Long productId;
+    private String barcode; // Captures physical scanner gun input
     private Integer quantity;
 }

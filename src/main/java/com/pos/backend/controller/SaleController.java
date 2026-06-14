@@ -26,4 +26,10 @@ public class SaleController {
         Sale completeInvoice = saleService.processCheckout(request, currentUsername);
         return ResponseEntity.ok(completeInvoice);
     }
+    // Void a sale: DELETE http://localhost:8085/api/sales/{id}/void
+    @DeleteMapping("/{id}/void")
+    public ResponseEntity<String> voidSale(@PathVariable Long id) {
+        saleService.voidSale(id);
+        return ResponseEntity.ok("Transaction ID " + id + " has been successfully voided. Inventory balances restored.");
+    }
 }
